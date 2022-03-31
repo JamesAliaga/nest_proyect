@@ -47,6 +47,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14.x
+        cache: 'npm'
+    - run: npm install
+
     - name: Deploy to Server 1
       uses: easingthemes/ssh-deploy@main
       env:
@@ -54,9 +62,3 @@ jobs:
         REMOTE_HOST: ${{ secrets.HOST_DNS }} 
         REMOTE_USER: ${{ secrets.USERNAME }}
         TARGET: /home/ubuntu/nest_proyect
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14.x
-        cache: 'npm'
-    - run: npm install
