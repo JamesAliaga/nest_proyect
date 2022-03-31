@@ -36,7 +36,7 @@ jobs:
       with:
         image: jaimealiaga/nest_proyect
         tags: v1, latest
-        registry: registry-url.io
-        dockerfile: Dockerfile.ci
+        registry: docker.io
+        #dockerfile: Dockerfile.ci
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
