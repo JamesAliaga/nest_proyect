@@ -1,0 +1,11 @@
+const request = require("request-promise"),
+path = "https://jsonplaceholder.typicode.com/posts";
+
+request({
+    uri: path,
+    json: true,
+}).then(posts => {
+    posts.forEach(post => {
+        console.log(`Tenemos a un post con id: ${post.id}, titulo: ${post.title} y cuerpo: ${post.body}`);
+    })
+});
