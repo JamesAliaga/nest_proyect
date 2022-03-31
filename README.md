@@ -24,7 +24,7 @@
 
 ## Descripción
 
-- Proyecto realizado con [Nest](https://github.com/nestjs/nest) para consumir una API y mostrar los datos retornados.
+- Proyecto realizado con [Nest](https://github.com/nestjs/nest) para consumir una API y mostrar los datos retornados
 - Despliegue configurado mediante github actions bajo los siguientes pasos:
   - Actualizar el codigo en instancia EC2 de AWS
   - Instalar dependencias del proyecto
