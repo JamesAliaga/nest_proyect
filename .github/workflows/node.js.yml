@@ -26,7 +26,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: jaimealiaga/nest_proyect
-        tags: v1, latest
+        tags: /refs/heads/main, latest
         registry: docker.io
         dockerfile: Dockerfile.ci
         username: ${{ secrets.DOCKER_USERNAME }}
