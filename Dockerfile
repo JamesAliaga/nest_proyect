@@ -3,7 +3,7 @@ WORKDIR /app
 #COPY package.json .
 #COPY src ./scr
 #COPY test ./test
-COPY . /
+COPY ./* ./
 RUN npm install
 RUN npm install ajv@^8.9.0 --save
 CMD ["npm", "start"]
