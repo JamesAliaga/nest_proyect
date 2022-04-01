@@ -43,7 +43,7 @@ jobs:
         
   deploy:
     needs: build
-    name: Deploy to EC2
+    name: Deploy to Heroku
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -55,22 +55,8 @@ jobs:
         cache: 'npm'
     - run: npm install
 
-    - name: Deploy to Server 1
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-        REMOTE_HOST: ${{ secrets.HOST_DNS }} 
-        REMOTE_USER: ${{ secrets.USERNAME }}
-        TARGET: /home/ubuntu/nest_proyect
-
-    - name: Run docker container
-      uses: appleboy/ssh-action@master
+    - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       with:
-        host: ${{ secrets.HOST_DNS }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.EC2_SSH_KEY }}
-        envs: GITHUB_SHA
-        script: |
-          docker stop nest_proyecto_container
-          docker rm nest_proyecto_container
-          docker run -it -d -v /home/ubuntu/nest_proyect:/home/node/app --name nest_proyecto_container -p 80:3000 jaimealiaga/nest_proyect
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "nest-proyect" #Must be unique in Heroku
+        heroku_email: "j.aliaga95@gmail.com"
