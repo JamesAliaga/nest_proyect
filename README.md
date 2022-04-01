@@ -26,10 +26,14 @@
 
 - Proyecto realizado con [Nest](https://github.com/nestjs/nest) para consumir una API y mostrar los datos retornados.
 - Despliegue configurado mediante github actions bajo los siguientes pasos:
-  - Actualizar el codigo en instancia EC2 de AWS
-  - Instalar dependencias del proyecto
-  - Generar imagen de Docker a partir de un Dockerfile
-  - Correr un contenedor en la instancia con la imagen creada en el paso anterior
+  - AWS Workflow
+    -Actualizar el codigo en instancia EC2 de AWS
+    -Instalar dependencias del proyecto
+    -Generar imagen de Docker a partir de un Dockerfile
+    -Correr un contenedor en la instancia con la imagen creada en el paso anterior
+  - Heroku Workflow
+    -Generar imagen de Docker a partir de un Dockerfile y subirla a Heroku Container Registry
+    -Generar release a partir de la imagen anterior en Heroku Dyno
 
 ## Instalación
 
